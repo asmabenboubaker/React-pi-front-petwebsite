@@ -9,7 +9,11 @@ const Home = React.lazy(() => import('./Components/Pages/Home.js'))
 const Header = React.lazy(() => import('./Components/Pages/Header'))
 const Footer = React.lazy(() => import('./Components/Pages/Footer'))
 const Market = React.lazy(()=> import ('./Components/Pages/Market'))
-const About = React.lazy(()=> import ('./Components/Pages/About'))
+const About = React.lazy(() => import('./Components/Pages/About'))
+const Login = React.lazy(() => import('./Components/User/login'))
+const Register = React.lazy(()=> import ('./Components/User/register'))
+
+
 function App() {
 useScript("./assets/js/email-decode.min.js");
 
@@ -38,14 +42,17 @@ useScript("./assets/js/main.js");
      
       <Suspense fallback={<div>Loading...</div>}>
       <Header/>
-     
-                <Routes>
-                <Route path='*' element={<Home/>}></Route>
-                <Route path='/shop' element={<Market/>}></Route>
-                <Route path='/About' element={<About/>}></Route>
-                </Routes>
-<Footer/>
-            </Suspense>
+        <Routes>
+          <Route path='*' element={<Home/>}></Route>
+          <Route path='/shop' element={<Market/>}></Route>
+          <Route path='/About' element={<About />}></Route>
+          <Route path='/Login' element={<Login />}></Route>
+          <Route path='/Register' element={<Register />}></Route>
+        </Routes>
+      
+        
+      <Footer />
+      </Suspense>
     </div>
   );
 }
